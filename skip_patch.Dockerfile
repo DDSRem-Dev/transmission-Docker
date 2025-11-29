@@ -29,7 +29,7 @@ RUN apk add --no-cache --upgrade \
         xz
 
 RUN mkdir -p /rootfs && \
-    git clone https://github.com/DDS-Derek/transmission_pt_edition.git /build && \
+    git clone https://github.com/DDSRem-Dev/transmission_pt_edition.git /build && \
     cd /build && \
     git submodule update --init --recursive && \
     mkdir -p /build/build && \
