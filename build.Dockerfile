@@ -98,7 +98,8 @@ RUN set -ex && \
     curl -sL "https://github.com/endor/kettu/archive/master.tar.gz" | tar xzvpf - --strip-components=1 -C /kettu && \
     # Install flood
     mkdir /flood && \
-    curl -sL "https://github.com/johman10/flood-for-transmission/releases/download/latest/flood-for-transmission.tar.gz" | tar xzvpf - --strip-components=1 -C /flood && \
+    FLOOD_VERSION=$(curl -s "https://api.github.com/repos/johman10/flood-for-transmission/releases/latest" | jq -r .tag_name) && \
+    curl -sL "https://github.com/johman10/flood-for-transmission/releases/download/${FLOOD_VERSION}/flood-for-transmission.tar.gz" | tar xzvpf - --strip-components=1 -C /flood && \
     # Install trguing
     mkdir /trguing && \
     TrguiNG_VERSION=$(curl -s "https://api.github.com/repos/openscopeproject/TrguiNG/releases/latest" | jq -r .tag_name) && \
