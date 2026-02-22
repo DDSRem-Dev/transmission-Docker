@@ -28,6 +28,8 @@ RUN apk add --no-cache --upgrade \
         tar \
         xz
 
+ENV CMAKE_POLICY_VERSION_MINIMUM=3.5
+
 RUN mkdir -p /rootfs && \
     git clone https://github.com/DDSRem-Dev/transmission_pt_edition.git /build && \
     cd /build && \
