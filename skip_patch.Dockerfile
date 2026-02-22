@@ -1,4 +1,4 @@
-FROM alpine:3.23 AS Build
+FROM alpine:3.23 AS build
 
 RUN apk add --no-cache --upgrade \
         build-base \
@@ -37,6 +37,7 @@ RUN mkdir -p /rootfs && \
     cmake \
         -DCMAKE_BUILD_TYPE=RelWithDebInfo \
         -DCMAKE_INSTALL_PREFIX="/rootfs" \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
         .. && \
     cmake --build . --target install -j 1
 
@@ -52,7 +53,7 @@ ENV PS1="\[\e[32m\][\[\e[m\]\[\e[36m\]\u \[\e[m\]\[\e[37m\]@ \[\e[m\]\[\e[34m\]\
     PGID=1000 \
     LANG=zh_CN.UTF-8
 
-COPY --from=Build /rootfs /usr
+COPY --from=build /rootfs /usr
 
 RUN set -ex && \
     apk add --no-cache \
