@@ -2,5 +2,16 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "matchFileNames": [
+        "v3.Dockerfile"
+      ],
+      "matchPackageNames": [
+        "alpine"
+      ],
+      "allowedVersions": "^3\\.17\\.x$"
+    }
   ]
 }
