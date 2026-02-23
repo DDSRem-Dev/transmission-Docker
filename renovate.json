@@ -11,7 +11,7 @@
       "matchPackageNames": [
         "alpine"
       ],
-      "allowedVersions": "^3\\.17\\.x$"
+      "allowedVersions": ">=3.17.0 <3.18.0"
     }
   ]
 }
