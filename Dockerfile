@@ -13,6 +13,7 @@ ENV PS1="\[\e[32m\][\[\e[m\]\[\e[36m\]\u \[\e[m\]\[\e[37m\]@ \[\e[m\]\[\e[34m\]\
     LANG=zh_CN.UTF-8
 
 RUN set -ex && \
+    apk upgrade --no-cache && \
     apk add --no-cache \
         tzdata \
         bash \
